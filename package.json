@@ -13,5 +13,5 @@
     "build": "bun build",
     "publish": "npm version patch"
   },
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
