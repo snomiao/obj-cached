@@ -2,8 +2,9 @@
   "name": "obj-cached",
   "module": "index.ts",
   "main": "dist/index.js",
-  "files": ["dist/*"],
-
+  "files": [
+    "dist/*"
+  ],
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest"
@@ -12,8 +13,7 @@
     "build": "tsc && bun build ./ --outdir=dist",
     "prepublishOnly": "npm version patch"
   },
-
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
     "typescript": "latest"
   }
