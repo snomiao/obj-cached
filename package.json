@@ -1,0 +1,17 @@
+{
+  "name": "obj-cached",
+  "module": "index.ts",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "bun build",
+    "publish": "npm version patch"
+  },
+  "version": "0.0.1"
+}
