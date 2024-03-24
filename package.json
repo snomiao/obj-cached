@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "tsc && bun build ./ --outdir=dist",
-    "publish": "npm version patch"
+    "prepublish": "npm version patch"
   },
 
   "version": "0.0.2",
