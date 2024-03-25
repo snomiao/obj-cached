@@ -11,7 +11,7 @@
     "@types/bun": "latest"
   },
   "scripts": {
-    "build": "tsc && bun build ./ --outdir=dist",
+    "build": "rm -rf dist && tsc && bun build ./ --outdir=./dist",
     "prepack": "bun run build && npm version patch"
   },
   "version": "0.0.13",
