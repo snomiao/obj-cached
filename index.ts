@@ -13,8 +13,8 @@ export function objCachedAsync<Args extends unknown[], Result>(
 ) {
   const key = `${prefix}${fn.toString()}`;
   return async (...args: Args) => {
-    const result = await obj[`${key}@${JSON.stringify(args)}`]
-    return (await obj[`${key}@${JSON.stringify(args)}`] = result ?? await fn(...args)) as Result
+    const cachedResult = await obj[`${key}@${JSON.stringify(args)}`]
+    return await (obj[`${key}@${JSON.stringify(args)}`] = cachedResult ?? await fn(...args)) as Result
   };
 }
 
