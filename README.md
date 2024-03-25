@@ -1,10 +1,13 @@
 # Object Cached Function
 
+Cache function results in globalThis, useful when playing with `bun --hot`
+
 ## Example Usage
 
 ```typescript
 import 'obj-cached'
 
+// sync
 const fn = objCached(()=> {
     // do something heavy in sync
     // cached with global object
@@ -13,7 +16,7 @@ const fn = objCached(()=> {
 
 const result = fn()
 
-
+// async
 const fna =  objCachedAsync(async ()=> {
     // do something heavy
     // and cached with global object
