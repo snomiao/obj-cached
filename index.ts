@@ -4,7 +4,7 @@ export function objCached<Args extends unknown[], Result>(
   prefix = "obj-cached-"
 ) {
   const key = `${prefix}${fn.toString()}`;
-  return (...args: Args) => (obj[key] ??= fn(...args)) as Result;
+  return (...args: Args) => (obj[`${key}@${JSON.stringify(args)}`] ??= fn(...args)) as Result;
 }
 export function objCachedAsync<Args extends unknown[], Result>(
   fn: (...args: Args) => Promise<Result> | Result,
@@ -12,5 +12,6 @@ export function objCachedAsync<Args extends unknown[], Result>(
   prefix = "obj-cached-"
 ) {
   const key = `${prefix}${fn.toString()}`;
-  return async (...args: Args) => (obj[key] ??= await fn(...args)) as Result;
+  return async (...args: Args) => (obj[`${key}@${JSON.stringify(args)}`] ??= await fn(...args)) as Result;
 }
+

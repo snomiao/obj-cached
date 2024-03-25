@@ -36,7 +36,7 @@ export function objCached<Args extends unknown[], Result>(
   obj: Record<string, unknown> = globalThis,
   prefix = "obj-cached-"
 ) {
-  const key = `${prefix}${fn.toString()}`;
+  const key = `${prefix}${fn.toString()}@${JSON.stringify(args)}`;
   return (...args: Args) => (obj[key] ??= fn(...args)) as Result;
 }
 export function objCachedAsync<Args extends unknown[], Result>(
@@ -44,10 +44,9 @@ export function objCachedAsync<Args extends unknown[], Result>(
   obj: Record<string, unknown> = globalThis,
   prefix = "obj-cached-"
 ) {
-  const key = `${prefix}${fn.toString()}`;
+  const key = `${prefix}${fn.toString()}@${JSON.stringify(args)}`;
   return async (...args: Args) => (obj[key] ??= await fn(...args)) as Result;
 }
-
 ```
 
 ## License
