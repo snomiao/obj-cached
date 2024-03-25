@@ -5,15 +5,17 @@ Cache function results in globalThis, useful when playing with `bun --hot`
 ## Example Usage
 
 ```typescript
-import 'obj-cached'
+import {objCached} from 'obj-cached'
 
 // sync
-const fn = objCached(()=> {
+const fn = objCached(() => {
     // do something heavy in sync
     // cached with global object
     return ...
 })
 
+
+import {objCachedAsync} from 'obj-cached'
 const result = fn()
 
 // async
