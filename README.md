@@ -1,8 +1,6 @@
 # Object Cached Function
 
-## Example
-
-````typescript
+## Example Usage
 
 ```typescript
 import 'obj-cached'
@@ -23,11 +21,9 @@ const fna =  objCachedAsync(async ()=> {
 }, window)
 
 const result = await fn()
+```
 
 ## Implementation
-
-
-
 
 ```typescript
 export function objCached<Args extends unknown[], Result>(
