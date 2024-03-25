@@ -14,7 +14,7 @@
     "build": "tsc && bun build ./ --outdir=dist",
     "prepublishOnly": "npm version patch"
   },
-  "version": "0.0.7",
+  "version": "0.0.8",
   "dependencies": {
     "typescript": "latest"
   }
