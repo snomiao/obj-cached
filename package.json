@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "tsc && bun build ./ --outdir=dist",
-    "prepublishOnly": "npm version patch"
+    "prepublishOnly": "bun run build && npm version patch"
   },
   "version": "0.0.10",
   "dependencies": {
