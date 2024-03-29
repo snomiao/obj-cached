@@ -8,7 +8,7 @@ export function objCached<Args extends unknown[], Result>(
 }
 export function objCachedAsync<Args extends unknown[], Result>(
   fn: (...args: Args) => Promise<Result> | Result,
-  obj: Record<string, unknown> = globalThis,
+  obj: Record<string, Promise<unknown>|unknown> = globalThis,
   prefix = "obj-cached-"
 ) {
   const key = `${prefix}${fn.toString()}`;
@@ -17,4 +17,3 @@ export function objCachedAsync<Args extends unknown[], Result>(
     return await (obj[`${key}@${JSON.stringify(args)}`] = cachedResult ?? await fn(...args)) as Result
   };
 }
-
