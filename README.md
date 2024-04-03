@@ -4,6 +4,8 @@ Cache function results in globalThis, useful when playing with `bun --hot`
 
 ## Example Usage
 
+### Sync
+
 ```typescript
 import {objCached} from 'obj-cached'
 
@@ -12,21 +14,49 @@ const fn = objCached(() => {
     // do something heavy in sync
     // cached with global object
     return ...
-})
+}) // cached with globalThis by default, (global['prefix-hashedKeyXXXX'] in node or window['prefix-hashedKeyXXXX'] in browser)
 
-
-import {objCachedAsync} from 'obj-cached'
 const result = fn()
 
+```
+
+### Async
+
+```typescript
 // async
+import {objCachedAsync} from 'obj-cached'
+const cacheObj = {} // custom cacheObj
 const fna =  objCachedAsync(async ()=> {
     // do something heavy
     // and cached with global object
     return ...
-}, window)
+}, cacheObj) // cached with global this
 
 const result = await fn()
+
 ```
+
+### Store your Cached Object into File (must by async)
+
+```typescript
+import { FileCacheObj } from "file-cached";
+import { objCachedAsync } from "obj-cached";
+
+const cacheObj = FileCacheObj(import.meta.dir + "/cache.json");
+
+const result = await objCachedAsync(async () => {
+  // do sth heavy
+}, cacheObj)();
+```
+
+
+## Limitations
+
+1. You can only cache plain JSON object
+2. Use async version when used with FileCacheObj.
+3. objCachedAsync is NOT waitting for cache written
+  - so cache data MAY LOST if you terminate process before it's done.
+  - and there are maybe conflict cache written
 
 ## Implementation
 
