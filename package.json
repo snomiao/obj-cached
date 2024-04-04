@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "rm -rf dist && tsc && bun build ./ --outdir=./dist",
-    "release": "bun run build && npm version patch && npm publish"
+    "release": "bun test && bun run build && npm version patch && npm publish"
   },
   "version": "0.0.19",
   "dependencies": {
