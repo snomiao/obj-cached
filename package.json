@@ -16,7 +16,7 @@
     "build": "rm -rf dist && tsc && bun build ./ --outdir=./dist",
     "release": "bun test && bun run build && npm version patch && npm publish"
   },
-  "version": "0.0.19",
+  "version": "0.0.20",
   "dependencies": {
     "md5": "^2.3.0",
     "typescript": "latest"
