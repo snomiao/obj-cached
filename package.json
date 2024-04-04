@@ -16,6 +16,8 @@
   },
   "version": "0.0.17",
   "dependencies": {
+    "@types/md5": "^2.3.5",
+    "md5": "^2.3.0",
     "typescript": "latest"
   }
 }
