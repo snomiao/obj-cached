@@ -34,6 +34,14 @@ describe("objCached", () => {
       expect(et - st).toBeLessThan(1); // 30ms
     }
   });
+  it("cache different result into Object", () => {
+    // sync
+    const fn = objCached((a: number, b: number) => {
+      return a + b;
+    }); // cached with globalThis by default, (global['prefix-hashedKeyXXXX'] in node or window['prefix-hashedKeyXXXX'] in browser)
+    expect(fn(1, 1)).toEqual(1 + 1);
+    expect(fn(2, 1)).toEqual(2 + 1);
+  });
   it("with custom obj", () => {
     // sync
     const cacheObj = {};
