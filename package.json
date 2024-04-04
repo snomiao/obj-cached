@@ -8,6 +8,8 @@
   ],
   "type": "module",
   "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/md5": "^2.3.5",
     "@types/bun": "latest"
   },
   "scripts": {
@@ -16,7 +18,6 @@
   },
   "version": "0.0.18",
   "dependencies": {
-    "@types/md5": "^2.3.5",
     "md5": "^2.3.0",
     "typescript": "latest"
   }
