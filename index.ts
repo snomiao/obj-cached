@@ -1,4 +1,6 @@
 import md5 from "md5";
+
+objCached;
 export function objCached<Args extends unknown[], Result>(
   fn: (...args: Args) => Result,
   obj: Record<string, unknown> = globalThis,
@@ -9,6 +11,14 @@ export function objCached<Args extends unknown[], Result>(
     const key = `${sig}@${md5(JSON.stringify(args))}`;
     return (obj[key] ??= fn(...args)) as Result;
   };
+}
+export async function hot<R>(
+  fn: () => PromiseLike<R>,
+  obj: Record<string, Promise<unknown> | unknown> = globalThis,
+  prefix = "obj-cached-"
+) {
+  const k = md5(`${prefix}${fn.toString()}`);
+  return (obj[k] ??= await fn());
 }
 export function objCachedAsync<Args extends unknown[], Result>(
   fn: (...args: Args) => Promise<Result> | Result,
