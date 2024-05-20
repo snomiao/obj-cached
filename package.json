@@ -26,5 +26,9 @@
       "main",
       "next"
     ]
-  }
+  },
+  "description": "Cache function results in globalThis, useful when playing with `bun --hot`",
+  "keywords": [],
+  "author": "snomiao@gmail.com",
+  "license": "MIT"
 }
