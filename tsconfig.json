@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["bun", "istanbul-lib-coverage", "istanbul-lib-report", "istanbul-reports", "jest", "md5", "node", "stack-utils", "ws", "yargs", "yargs-parser"],
     "lib": [
       "ESNext"
     ],
